@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { createChat } from "@n8n/chat";
+import "@n8n/chat/style.css";
+import { useEffect, useRef } from "react";
+import "./App.css";
 
 function App() {
+  const chatRef = useRef(null);
+
+  useEffect(() => {
+    if (chatRef.current) {
+      const chat = createChat({
+        webhookUrl:
+          "https://ianyian.app.n8n.cloud/webhook/99021e28-caeb-440d-880f-d600c8e37bed/chat",
+        target: chatRef.current,
+        theme: "light",
+      });
+      return () => {
+        chat.unmount();
+      };
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='chat-container' ref={chatRef}></div>
     </div>
   );
 }

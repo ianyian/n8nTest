@@ -81,6 +81,7 @@
 @media (max-width: 768px) {
   .main-content {
     flex-direction: column;
+    padding: 0.5rem;
   }
   .chat-sidebar {
     height: 300px;
@@ -89,5 +90,34 @@
     border-top: 1px solid #cbd5e0;
     padding-left: 0;
     padding-top: 1rem;
+  }
+  .search-section {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.4rem;
+    padding: 0.5rem;
+  }
+  
+  .search-input {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+  
+  .university-list {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .university-card {
+    padding: 0.75rem;
+    margin: 0.25rem;
+  }
+  
+  .university-logo {
+    max-width: 80px;
   }
 }

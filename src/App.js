@@ -10,8 +10,7 @@ const sampleUniversities = [
     popularCourses: ["Medicine", "Engineering", "Law"],
     tuitionRange: "RM 20,000 - RM 40,000",
     ranking: "Top 1 in Malaysia",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/University_of_Malaya_logo.svg/1200px-University_of_Malaya_logo.svg.png",
+    imageUrl: `${process.env.PUBLIC_URL}/university-logos/university-of-malaya.png`,
   },
   {
     name: "Universiti Putra Malaysia",
@@ -19,8 +18,7 @@ const sampleUniversities = [
     popularCourses: ["Agriculture", "Computer Science", "Business"],
     tuitionRange: "RM 15,000 - RM 35,000",
     ranking: "Top 3 in Malaysia",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/Universiti_Putra_Malaysia_logo.svg/1200px-Universiti_Putra_Malaysia_logo.svg.png",
+    imageUrl: `${process.env.PUBLIC_URL}/university-logos/universiti-putra-malaysia.png`,
   },
   {
     name: "Universiti Teknologi Malaysia",
@@ -28,8 +26,7 @@ const sampleUniversities = [
     popularCourses: ["Engineering", "Architecture", "Science"],
     tuitionRange: "RM 18,000 - RM 38,000",
     ranking: "Top 2 in Malaysia",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Universiti_Teknologi_Malaysia_logo.svg/1200px-Universiti_Teknologi_Malaysia_logo.svg.png",
+    imageUrl: `${process.env.PUBLIC_URL}/university-logos/universiti-teknologi-malaysia.png`,
   },
   {
     name: "Taylor's University",
@@ -37,8 +34,7 @@ const sampleUniversities = [
     popularCourses: ["Business", "Hospitality", "Design"],
     tuitionRange: "RM 25,000 - RM 50,000",
     ranking: "Top Private University",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Taylor%27s_University_logo.svg/1200px-Taylor%27s_University_logo.svg.png",
+    imageUrl: `${process.env.PUBLIC_URL}/university-logos/taylors-university.png`,
   },
   {
     name: "Monash University Malaysia",
@@ -46,8 +42,7 @@ const sampleUniversities = [
     popularCourses: ["Medicine", "Engineering", "Business"],
     tuitionRange: "RM 30,000 - RM 55,000",
     ranking: "International Branch Campus",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/Monash_University_logo.svg/1200px-Monash_University_logo.svg.png",
+    imageUrl: `${process.env.PUBLIC_URL}/university-logos/monash-university-malaysia.png`,
   },
 ];
 

@@ -1,46 +1,93 @@
 .App {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7fafc;
+  color: #2d3748;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #1a365d;
+  color: white;
+  padding: 1rem 2rem;
   text-align: center;
+  font-weight: 600;
+  font-size: 1.8rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-content {
+  display: flex;
+  flex: 1;
+  padding: 1rem 2rem;
+  gap: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
+.search-section {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+}
 
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
+.search-input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  outline-color: #4299e1;
+}
+
+.university-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  overflow-y: auto;
+  max-height: 75vh;
+}
+
+.university-card {
+  background-color: white;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.university-logo {
+  max-width: 120px;
+  max-height: 80px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.chat-sidebar {
+  flex: 3;
+  border-left: 1px solid #cbd5e0;
+  padding-left: 1rem;
+  height: 80vh;
+  position: sticky;
+  top: 1rem;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+}
+
+@media (max-width: 768px) {
+  .main-content {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
   }
-
-  .App-link {
-    color: #61dafb;
-  }
-
-  .chat-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    height: 80vh;
-  }
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  .chat-sidebar {
+    height: 300px;
+    position: relative;
+    border-left: none;
+    border-top: 1px solid #cbd5e0;
+    padding-left: 0;
+    padding-top: 1rem;
   }
 }

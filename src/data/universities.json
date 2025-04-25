@@ -1,0 +1,162 @@
+[
+  {
+    "name": "University of Malaya",
+    "location": "Kuala Lumpur",
+    "popularCourses": ["Medicine", "Engineering", "Law"],
+    "tuitionRange": "RM 20,000 - RM 40,000",
+    "ranking": "Top 1 in Malaysia",
+    "imageUrl": "university-logos/universityofmalaya.png"
+  },
+  {
+    "name": "Universiti Putra Malaysia",
+    "location": "Serdang",
+    "popularCourses": ["Agriculture", "Computer Science", "Business"],
+    "tuitionRange": "RM 15,000 - RM 35,000",
+    "ranking": "Top 3 in Malaysia",
+    "imageUrl": "university-logos/universitiputramalaysia.png"
+  },
+  {
+    "name": "Universiti Teknologi Malaysia",
+    "location": "Skudai",
+    "popularCourses": ["Engineering", "Architecture", "Science"],
+    "tuitionRange": "RM 18,000 - RM 38,000",
+    "ranking": "Top 2 in Malaysia",
+    "imageUrl": "university-logos/universititeknologimalaysia.png"
+  },
+  {
+    "name": "Taylor's University",
+    "location": "Subang Jaya",
+    "popularCourses": ["Business", "Hospitality", "Design"],
+    "tuitionRange": "RM 25,000 - RM 50,000",
+    "ranking": "Top Private University",
+    "imageUrl": "university-logos/taylorsuniversity.png"
+  },
+  {
+    "name": "Monash University Malaysia",
+    "location": "Bandar Sunway",
+    "popularCourses": ["Medicine", "Engineering", "Business"],
+    "tuitionRange": "RM 30,000 - RM 55,000",
+    "ranking": "International Branch Campus",
+    "imageUrl": "university-logos/monashuniversitymalaysia.png"
+  },
+  {
+    "name": "Universiti Kebangsaan Malaysia",
+    "location": "Bangi",
+    "popularCourses": ["Science", "Engineering", "Social Sciences"],
+    "tuitionRange": "RM 15,000 - RM 35,000",
+    "ranking": "Top 4 in Malaysia",
+    "imageUrl": "university-logos/universitikebangsaanmalaysia.png"
+  },
+  {
+    "name": "Universiti Sains Malaysia",
+    "location": "Penang",
+    "popularCourses": ["Health Sciences", "Engineering", "Technology"],
+    "tuitionRange": "RM 14,000 - RM 33,000",
+    "ranking": "Top 5 in Malaysia",
+    "imageUrl": "university-logos/universitisainsmalaysia.png"
+  },
+  {
+    "name": "Sunway University",
+    "location": "Subang Jaya",
+    "popularCourses": ["Business", "Computer Science", "Psychology"],
+    "tuitionRange": "RM 28,000 - RM 50,000",
+    "ranking": "Top Private University",
+    "imageUrl": "university-logos/sunwayuniversity.png"
+  },
+  {
+    "name": "UCSI University",
+    "location": "Kuala Lumpur",
+    "popularCourses": ["Medicine", "Engineering", "Business"],
+    "tuitionRange": "RM 25,000 - RM 48,000",
+    "ranking": "Top Private University",
+    "imageUrl": "university-logos/ucsiuniversity.png"
+  },
+  {
+    "name": "INTI International University",
+    "location": "Nilai",
+    "popularCourses": ["Business", "Engineering", "Information Technology"],
+    "tuitionRange": "RM 22,000 - RM 45,000",
+    "ranking": "Top Private University",
+    "imageUrl": "university-logos/intiinternationaluniversity.png"
+  },
+  {
+    "name": "Universiti Malaysia Sarawak",
+    "location": "Kota Samarahan",
+    "popularCourses": ["Engineering", "Social Sciences", "Business"],
+    "tuitionRange": "RM 13,000 - RM 30,000",
+    "ranking": "Top 6 in Malaysia",
+    "imageUrl": "university-logos/universitimalaysiasarawak.png"
+  },
+  {
+    "name": "Universiti Malaysia Sabah",
+    "location": "Kota Kinabalu",
+    "popularCourses": ["Marine Science", "Engineering", "Business"],
+    "tuitionRange": "RM 12,000 - RM 28,000",
+    "ranking": "Top 7 in Malaysia",
+    "imageUrl": "university-logos/universitimalaysiasabah.png"
+  },
+  {
+    "name": "Multimedia University",
+    "location": "Cyberjaya",
+    "popularCourses": ["Information Technology", "Engineering", "Business"],
+    "tuitionRange": "RM 20,000 - RM 40,000",
+    "ranking": "Top Private University",
+    "imageUrl": "university-logos/multimediauniversity.png"
+  },
+  {
+    "name": "Universiti Teknologi MARA",
+    "location": "Shah Alam",
+    "popularCourses": ["Engineering", "Business", "Law"],
+    "tuitionRange": "RM 10,000 - RM 25,000",
+    "ranking": "Top 8 in Malaysia",
+    "imageUrl": "university-logos/universititeknologimara.png"
+  },
+  {
+    "name": "HELP University",
+    "location": "Kuala Lumpur",
+    "popularCourses": ["Psychology", "Business", "Law"],
+    "tuitionRange": "RM 20,000 - RM 45,000",
+    "ranking": "Top Private University",
+    "imageUrl": "university-logos/helpuniversity.png"
+  },
+  {
+    "name": "Asia Pacific University",
+    "location": "Bukit Jalil",
+    "popularCourses": ["Information Technology", "Business", "Engineering"],
+    "tuitionRange": "RM 18,000 - RM 40,000",
+    "ranking": "Top Private University",
+    "imageUrl": "university-logos/asiapacificuniversity.png"
+  },
+  {
+    "name": "Monash University Malaysia",
+    "location": "Bandar Sunway",
+    "popularCourses": ["Medicine", "Engineering", "Business"],
+    "tuitionRange": "RM 30,000 - RM 55,000",
+    "ranking": "International Branch Campus",
+    "imageUrl": "university-logos/monashuniversitymalaysia.png"
+  },
+  {
+    "name": "Universiti Teknologi Petronas",
+    "location": "Perak",
+    "popularCourses": ["Engineering", "Science", "Technology"],
+    "tuitionRange": "RM 15,000 - RM 35,000",
+    "ranking": "Top 9 in Malaysia",
+    "imageUrl": "university-logos/universititeknologipetronas.png"
+  },
+  {
+    "name": "Universiti Malaysia Pahang",
+    "location": "Pahang",
+    "popularCourses": ["Engineering", "Technology", "Business"],
+    "tuitionRange": "RM 14,000 - RM 32,000",
+    "ranking": "Top 10 in Malaysia",
+    "imageUrl": "university-logos/universitimalaysiapahang.png"
+  },
+  {
+    "name": "Asia e University",
+    "location": "Cyberjaya",
+    "popularCourses": ["Business", "Information Technology", "Education"],
+    "tuitionRange": "RM 12,000 - RM 25,000",
+    "ranking": "Top Private University",
+    "imageUrl": "university-logos/asiaeuniversity.png"
+  }
+]

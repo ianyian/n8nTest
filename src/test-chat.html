@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N8N Chat Test</title>
+  <script src="https://unpkg.com/@n8n/chat/dist/n8n-chat.umd.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@n8n/chat/dist/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+    .left-panel {
+      width: 60%;
+      padding: 20px;
+      background-color: #f7fafc;
+    }
+    .right-panel {
+      width: 40%;
+      height: 100%;
+      border-left: 1px solid #e2e8f0;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="left-panel">
+    <h1>Test Content</h1>
+    <p>This is a test page to debug the n8n chat integration.</p>
+  </div>
+  <div class="right-panel" id="chat-container"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const chatContainer = document.getElementById('chat-container');
+      
+      // Create the chat
+      const chat = window.n8nChat.createChat({
+        webhookUrl: "https://ianyian.app.n8n.cloud/webhook/3e707cbc-b9c2-44f2-9554-735352b7badc/chat",
+        target: chatContainer,
+        theme: "light",
+        embedded: true,
+        initialOpen: true,
+        showLauncher: false,
+        defaultOpen: true,
+        containerStyles: {
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          display: "block"
+        }
+      });
+
+      // Force the chat to be visible after a short delay
+      setTimeout(() => {
+        console.log('Attempting to force chat visibility');
+        
+        // Log the DOM structure to understand what's happening
+        console.log('Chat container:', chatContainer);
+        console.log('Chat container children:', chatContainer.children);
+        
+        // Try to find and manipulate the chat elements
+        const chatElements = chatContainer.querySelectorAll('*');
+        console.log('All chat elements:', chatElements);
+        
+        // Force visibility on all elements
+        chatElements.forEach(el => {
+          el.style.display = 'block';
+          el.style.visibility = 'visible';
+          el.style.opacity = '1';
+        });
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

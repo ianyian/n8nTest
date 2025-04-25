@@ -24,9 +24,11 @@
 }
 
 .search-section {
-  flex: 7;
+  flex: 4;
   display: flex;
   flex-direction: column;
+  width: 80%;
+  padding-right: 1rem;
 }
 
 .search-input {
@@ -65,34 +67,130 @@
   margin-bottom: 0.5rem;
 }
 
-.chat-sidebar {
-  flex: 3;
-  border-left: 1px solid #cbd5e0;
-  padding-left: 1rem;
-  height: 80vh;
-  position: sticky;
-  top: 1rem;
-  overflow-y: auto;
-  background-color: white;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+.university-logo-fallback {
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2e8f0;
+  color: #4a5568;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
 }
+
+.chat-container {
+  flex: 1;
+  width: 20%;
+  border-left: 1px solid #e2e8f0;
+  background-color: white;
+  box-shadow: -2px 0 6px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Chat button for mobile */
+.chat-button {
+  display: none; /* Hidden by default, shown only on mobile */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #4299e1; /* Brighter blue color */
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 9999; /* Ensure it's above everything */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: pulse 2s infinite; /* Add a subtle pulse animation */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(66, 153, 225, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.chat-button:hover {
+  background-color: #3182ce;
+  transform: scale(1.1);
+}
+
+.chat-button-active {
+  background-color: #e53e3e;
+  animation: none; /* Stop the pulse animation when active */
+}
+
+.chat-button-active:hover {
+  background-color: #c53030;
+}
+
+/* Make the SVG icon more visible */
+.chat-button svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 2.5px;
+}
+
+.chat-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Custom styles to modify the bot name */
+.chat-container :is(.n8n-chat-message-bubble-bot-name, .n8n-chat-message-bubble-bot-name *) {
+  visibility: hidden;
+  position: relative;
+}
+
+.chat-container .n8n-chat-message-bubble-bot-name::after {
+  content: "Andy";
+  visibility: visible;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 
 @media (max-width: 768px) {
   .main-content {
     flex-direction: column;
     padding: 0.5rem;
   }
-  .chat-sidebar {
-    height: 300px;
-    position: relative;
-    border-left: none;
-    border-top: 1px solid #cbd5e0;
-    padding-left: 0;
-    padding-top: 1rem;
-  }
   .search-section {
+    width: 100%;
     padding: 0.5rem;
+  }
+  .chat-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    border-left: none;
+    border-top: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .chat-button {
+    display: flex !important; /* Force display with !important */
   }
 }
 

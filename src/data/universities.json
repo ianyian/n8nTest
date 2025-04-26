@@ -128,14 +128,6 @@
     "imageUrl": "university-logos/asiapacificuniversity.png"
   },
   {
-    "name": "Monash University Malaysia",
-    "location": "Bandar Sunway",
-    "popularCourses": ["Medicine", "Engineering", "Business"],
-    "tuitionRange": "RM 30,000 - RM 55,000",
-    "ranking": "International Branch Campus",
-    "imageUrl": "university-logos/monashuniversitymalaysia.png"
-  },
-  {
     "name": "Universiti Teknologi Petronas",
     "location": "Perak",
     "popularCourses": ["Engineering", "Science", "Technology"],

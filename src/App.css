@@ -92,7 +92,7 @@
 }
 
 /* Chat button for mobile */
-.chat-button {
+.mobile-chat-button { /* Renamed from .chat-button */
   display: none; /* Hidden by default, shown only on mobile */
   position: fixed;
   bottom: 20px;
@@ -127,22 +127,22 @@
   }
 }
 
-.chat-button:hover {
+.mobile-chat-button:hover { /* Renamed from .chat-button */
   background-color: #3182ce;
   transform: scale(1.1);
 }
 
-.chat-button-active {
+.mobile-chat-button.chat-button-active { /* Renamed and specified */
   background-color: #e53e3e;
   animation: none; /* Stop the pulse animation when active */
 }
 
-.chat-button-active:hover {
+.mobile-chat-button.chat-button-active:hover { /* Renamed and specified */
   background-color: #c53030;
 }
 
 /* Make the SVG icon more visible */
-.chat-button svg {
+.mobile-chat-button svg { /* Renamed from .chat-button */
   width: 30px;
   height: 30px;
   stroke-width: 2.5px;
@@ -189,7 +189,7 @@
     border-top: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-  .chat-button {
+  .mobile-chat-button { /* Renamed from .chat-button */
     display: flex !important; /* Force display with !important */
   }
 }
@@ -218,4 +218,12 @@
   .university-logo {
     max-width: 80px;
   }
+}
+
+/* Attempt to hide the n8n chat welcome screen globally (again) */
+/* .n8n-chat-welcome-screen { display: none !important; } */ /* This didn't work */
+
+/* Last attempt: Try hiding the first direct child div of the container */
+#chat-embed-target > div:first-child {
+  display: none !important;
 }

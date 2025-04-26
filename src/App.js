@@ -1,126 +1,21 @@
-import { createChat } from "@n8n/chat";
-import "@n8n/chat/style.css";
+import { createChat } from "@n8n/chat"; // Restore import
+import "@n8n/chat/style.css"; // Restore import
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
+import UniversityCard from "./components/UniversityCard"; // Import UniversityCard
+import ChatButton from "./components/ChatButton"; // Restore import
 
 import universities from "./data/universities.json";
-
-function UniversityCard({ university }) {
-  const [imageError, setImageError] = useState(false);
-
-  // Function to handle image load errors
-  const handleImageError = () => {
-    setImageError(true);
-  };
-
-  // Extract first letters of university name for fallback display
-  const getInitials = (name) => {
-    return name
-      .split(" ")
-      .map((word) => word[0])
-      .join("")
-      .toUpperCase();
-  };
-
-  return (
-    <div className='university-card'>
-      {!imageError ? (
-        <img
-          src={`${process.env.PUBLIC_URL}/${university.imageUrl}`}
-          alt={university.name}
-          className='university-logo'
-          onError={handleImageError}
-        />
-      ) : (
-        <div className='university-logo-fallback'>
-          {getInitials(university.name)}
-        </div>
-      )}
-      <h3>{university.name}</h3>
-      <p>
-        <strong>Location:</strong> {university.location}
-      </p>
-      <p>
-        <strong>Popular Courses:</strong> {university.popularCourses.join(", ")}
-      </p>
-      <p>
-        <strong>Tuition Range:</strong> {university.tuitionRange}
-      </p>
-      <p>
-        <strong>Ranking:</strong> {university.ranking}
-      </p>
-    </div>
-  );
-}
-
-// Chat button component for mobile view
-function ChatButton({ onClick, isOpen }) {
-  // Inline styles to ensure visibility
-  const buttonStyle = {
-    position: "fixed",
-    bottom: "20px",
-    right: "20px",
-    width: "65px",
-    height: "65px",
-    borderRadius: "50%",
-    backgroundColor: isOpen ? "#e53e3e" : "#4299e1",
-    color: "white",
-    border: "none",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-    cursor: "pointer",
-    zIndex: 9999,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
-  const svgStyle = {
-    width: "30px",
-    height: "30px",
-    strokeWidth: 2.5,
-  };
-
-  return (
-    <button
-      style={buttonStyle}
-      onClick={onClick}
-      aria-label={isOpen ? "Close chat" : "Open chat"}
-      className='mobile-chat-button' // Just for identification
-    >
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 24 24'
-        style={svgStyle}
-        fill='none'
-        stroke='currentColor'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      >
-        {isOpen ? (
-          // X icon when chat is open
-          <>
-            <line x1='18' y1='6' x2='6' y2='18'></line>
-            <line x1='6' y1='6' x2='18' y2='18'></line>
-          </>
-        ) : (
-          // Chat icon when chat is closed
-          <>
-            <path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'></path>
-          </>
-        )}
-      </svg>
-    </button>
-  );
-}
 
 function App() {
   const chatRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm); // State for debounced search term
   const [filteredUniversities, setFilteredUniversities] =
     useState(universities);
   // Initialize with null to avoid hydration mismatch
   const [isMobile, setIsMobile] = useState(null);
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false); // Restore state
   const chatInstance = useRef(null);
 
   // Function to check if device is mobile
@@ -138,20 +33,33 @@ function App() {
     checkIfMobile();
   }, []);
 
-  // Listen for window resize events
+  // Debounced resize handler
   useEffect(() => {
-    window.addEventListener("resize", checkIfMobile);
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
+    let resizeTimeout;
+    const debouncedCheckIfMobile = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        checkIfMobile();
+      }, 300); // 300ms delay
     };
-  }, []);
+
+    window.addEventListener("resize", debouncedCheckIfMobile);
+
+    // Cleanup function to remove listener and clear timeout
+    return () => {
+      clearTimeout(resizeTimeout);
+      window.removeEventListener("resize", debouncedCheckIfMobile);
+    };
+  }, []); // Empty dependency array ensures this runs only on mount and unmount
 
   // Toggle chat visibility on mobile
   const toggleChat = () => {
+    // Restore function
     // Simply toggle the state to show/hide the chat container
     setIsChatOpen(!isChatOpen);
   };
 
+  // Restore useEffect for createChat
   useEffect(() => {
     // Only create chat if isMobile is not null (after initial mount)
     if (chatRef.current && isMobile !== null) {
@@ -160,24 +68,25 @@ function App() {
         chatInstance.current.unmount();
       }
 
+      // Use the last known working webhook URL
       const chat = createChat({
         webhookUrl:
-          "https://ianyian.app.n8n.cloud/webhook/3e707cbc-b9c2-44f2-9554-735352b7badc/chat",
+          "https://ianyian.app.n8n.cloud/webhook/a0d63d1d-babd-4513-95ee-c8c82130118f/chat",
         target: chatRef.current,
         theme: "light",
         mode: "fullscreen", // Always use fullscreen mode
         initialOpen: true, // Always open initially
         showLauncher: false, // We'll use our custom launcher
+        showWelcomeScreen: false, // Explicitly set to false
         defaultMessages: {
           systemMessage:
             "You are Andy, a helpful assistant for university information.",
-          welcomeMessage: "My name is Andy. How can I assist you today?",
+          // welcomeMessage: "My name is Andy. How can I assist you today?", // Keep welcome message commented out
         },
         customStyles: {
-          chatHeader: {
-            title: "Andy - University Assistant",
-          },
+          // No custom styles needed here if showWelcomeScreen works
         },
+        initialMessages: [], // Keep this, might still be relevant
       });
 
       chatInstance.current = chat;
@@ -186,22 +95,41 @@ function App() {
       setIsChatOpen(!isMobile);
 
       return () => {
-        chat.unmount();
+        // Ensure chat.unmount is called if chat exists
+        if (chatInstance.current) {
+          chatInstance.current.unmount();
+        }
       };
     }
+    // Add chatInstance to dependency array? No, likely causes loop. Keep isMobile.
   }, [isMobile]);
 
+  // Debounce search term effect
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 300); // 300ms delay
+
+    // Cleanup function to clear the timeout if searchTerm changes before delay finishes
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchTerm]); // Re-run effect only when searchTerm changes
+
+  // Filter universities based on the debounced search term
   useEffect(() => {
     const filtered = universities.filter(
       (uni) =>
-        uni.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        uni.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        uni.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        uni.location
+          .toLowerCase()
+          .includes(debouncedSearchTerm.toLowerCase()) ||
         uni.popularCourses.some((course) =>
-          course.toLowerCase().includes(searchTerm.toLowerCase())
+          course.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
         )
     );
     setFilteredUniversities(filtered);
-  }, [searchTerm]);
+  }, [debouncedSearchTerm]); // Re-run effect only when debouncedSearchTerm changes
 
   return (
     <div className='App'>
@@ -229,12 +157,17 @@ function App() {
         </section>
         <div
           className={`chat-container ${
+            // Restore dynamic class
             isMobile && !isChatOpen ? "chat-hidden" : ""
           }`}
           ref={chatRef}
+          id='chat-embed-target' // Keep ID for now, though likely not needed by createChat
         ></div>
         {/* Only show the button on mobile */}
-        {isMobile && <ChatButton onClick={toggleChat} isOpen={isChatOpen} />}
+        {isMobile && (
+          <ChatButton onClick={toggleChat} isOpen={isChatOpen} />
+        )}{" "}
+        {/* Restore button */}
       </main>
     </div>
   );
